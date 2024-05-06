@@ -107,3 +107,77 @@ spring Initializer website
 * Link(URL) expressions: @{...}
 * Fragment expressions: ~{...}
 
+
+
+## Create the Homepage Flow
+* Create a HomeController class in a package
+* Add a method and return the index.html page
+* Add Thymeleaf to the index.html page
+
+## UI Fragments 
+* Split HTML to use reusable components 
+  * Header
+  * Footer
+  * Any other common components
+* Refer components through fragments
+  
+#### UI Fragments in App
+* Create a fragments.html file
+* Move header, footer sections from index.html into fragments.html
+* Add th: replace or th:insert on index.html to refer fragments
+
+##### fragments reference: 
+you would add a div tag then th:replace like this:
+
+<div th:replace="~{fragments.html :: header}"></div>
+
+##### in fragments.html if you want to add a header component here is how it will look like:
+<header th:fragment="header">
+then the rest of the header code goes here 
+</header>
+
+## Template (`th:href`)
+-  th:href="@{/getCharacter/{charname} (charname='Character-Detail-Delores')}"
+
+- The `th:href` attribute is a Thymeleaf template that creates a URL.
+- `@{/getCharacter/{charname} (charname='Character-Detail-Delores')}` generates the URL `/getCharacter/Character-Detail-Delores`.
+
+## Controller
+@GetMapping("/getCharacter/{charname}")
+
+public String getCharacter(@PathVariable("charname") String charname){
+
+return "/characters/"+charname;
+
+}
+- The `@GetMapping` annotation maps the URL `/getCharacter/{charname}` to the `getCharacter` method.
+- The method extracts the `charname` parameter from the URL.
+- The method then returns a path `/characters/Character-Detail-Delores`.
+
+## Controller Annotations and Objects
+
+* @GetMapping, @PutMapping, @PostMapping, @DeleteMapping
+
+those annotations are so you can mapp your url path with the controller methods
+* @PathVariable
+
+capture the path variable that you have in your incooming URL
+
+* ResquestParam
+
+Used to capture the request parameter that you have inside your controller methods
+* Model
+
+The Model API from the spring MVC framework helps you to store any data you want to navigate
+into the UI
+
+## Implement Search Use case  
+![img.png](img.png)
+
+### Steps in the code
+
+- Create ProductController class and add a method for search function
+- Create Product bean class
+
+
+
