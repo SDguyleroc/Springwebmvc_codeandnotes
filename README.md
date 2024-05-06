@@ -123,8 +123,8 @@ spring Initializer website
   adding Thymeleaf in index or any HTML page would like this:
   with the xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" which is Thymeleaf namespace
- <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+ ## example <
+ html xmlns="http://www.w3.org/1999/xhtml "xmlns:th="http://www.thymeleaf.org">
 
   <head>
   
