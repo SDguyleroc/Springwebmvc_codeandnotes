@@ -22,7 +22,13 @@ public class HomeController {
          *
          */
     }
-
+    /**
+ * Constructs the URL path to view the details of a character, given the character's name.
+ * This method is used to generate the URL path for the "View Character Details" link,
+ * which allows users to navigate to the details page of a specific character.
+ * 
+ * @param charname The name of the character for which details are to be viewed.
+ * @return */
     @GetMapping("/getCharacter/{charname}")
     public String getCharacter(@PathVariable("charname") String charname){
         return "/characters/"+charname;
