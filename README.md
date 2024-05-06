@@ -16,7 +16,7 @@
 * Based on Java 17 and above
 * Works with Jakarta EE 9+: Servlet 5.0+, JPA 3.0+
     * Works with jakarta packages instead of javax packages
-* Supports lastes web servers: omcat, Jetty, Untertow
+* Supports lastes web servers: Tomcat, Jetty, Untertow
 * Compatible with virtual threadds (java 19)
     * Web app - single thread per request
     * Configure Spring apps ti use virtual threads
