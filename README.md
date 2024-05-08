@@ -178,6 +178,14 @@ into the UI
 
 - Create ProductController class and add a method for search function
 - Create Product bean class
+- Add ProductRepository class to talk to MySQL
+which is the data access layer. repsitory APIs in spring data exist to incoporate all the boilerplate code that you have to write when you deal with a database
+all the code is writen behind the scene so you don't have to write it.
+ProductRepository is name like this because of the spring jpa naming convertion.
+the Interface has to be annoted with @Repository and extends CrudRepository or JpaRepository.
+the magic is that they give you a set of ready-made methods that you can quickly utilize to query the database.
+to search product we can add in our method.
+
 
 
 
