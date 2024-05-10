@@ -237,7 +237,9 @@ to search product we can add in our method.
 ![img_2.png](img_2.png)
 
 ### Bean Validation
--Create UserController class and method to display user registration page
+- Create UserController class and method to display user registration page
+- Create a User bean and add constraints with error messages
+- 
 
 
 
