@@ -9,7 +9,8 @@ public class Product {
     private int id;
     private String name;
     private String description;
-    private int noOfReview;
+    private int rating;
+    private int noOfReviews;
     private String color;
     private  int categoryId;
     private int robotId;
@@ -42,11 +43,11 @@ public class Product {
     }
 
     public int getNoOfReview() {
-        return noOfReview;
+        return noOfReviews;
     }
 
     public void setNoOfReview(int noOfReview) {
-        this.noOfReview = noOfReview;
+        this.noOfReviews = noOfReviews;
     }
 
     public String getColor() {
@@ -87,5 +88,12 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }
