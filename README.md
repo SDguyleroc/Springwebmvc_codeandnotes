@@ -18,7 +18,7 @@
 * Based on Java 17 and above
 * Works with Jakarta EE 9+: Servlet 5.0+, JPA 3.0+
     * Works with jakarta packages instead of javax packages
-* Supports lastes web servers: omcat, Jetty, Untertow
+* Supports lastes web servers: Tomcat, Jetty, Untertow
 * Compatible with virtual threadds (java 19)
     * Web app - single thread per request
     * Configure Spring apps ti use virtual threads
@@ -26,7 +26,7 @@
 ## Overview Of Spring MVC
 
 * Web-based framework built on Servlet API
-* Folows MVC design Pattern
+* Follows MVC design Pattern
     * #### M: Model
 
       Holds the data of your application      
@@ -59,7 +59,7 @@ Spring controller class
 
 ## Why Spring MVC?
 
-* Works on Spring framwork foundations
+* Works on Spring framework foundations
 * Best for building modular web applications
 * Flexible - not a lot of mandates
 * Lets developers focus on business logic
@@ -67,7 +67,7 @@ Spring controller class
 ## Project Development Overview 
 
 * Build a Big Star Collectibles website
-* All the stic files provided css, js static pages
+* All the static files provided css, js static pages
 * add code for various flows in the app
 * Add HTML paes as needed
 
@@ -86,11 +86,11 @@ Spring controller class
 * provides auto-configuration for spring MVC
 * Based on Spring Framework
 * Embedded servlet container
-* Generate Spring Boot project:
+* Generate Spring Boot project: at
 spring Initializer website
 
 ## Overview of Thymelaf
-* Server-side template enine
+* Server-side template engine
 * Helps retain HTML template in your project development
 * Can process HTML, XML, CSSS, JS and etc
 * Modules Specifically for Spring framework
@@ -103,7 +103,7 @@ spring Initializer website
 
 ## Thymeleaf Standard Syntax
 * variable expressions: ${...}
-* Slection expressions: *{...}
+* Selection expressions: *{...}
 * Link(URL) expressions: @{...}
 * Fragment expressions: ~{...}
 
@@ -112,7 +112,30 @@ spring Initializer website
 ## Create the Homepage Flow
 * Create a HomeController class in a package
 * Add a method and return the index.html page
+  example:
+  public class HomeController {
+   @GetMapping("/home")
+  public String displayHome(){
+  return "index";}
+  // the above method will return index.html, asumming you have a file name index.html in your resources/template folder.
+  }
 * Add Thymeleaf to the index.html page
+  adding Thymeleaf in index or any HTML page would like this:
+  with the xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" which is Thymeleaf namespace
+ ## example <
+ html xmlns="http://www.w3.org/1999/xhtml "xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+  
+  </head>
+
+  <body>
+  
+  
+  </body>
+
+</html>
 
 ## UI Fragments 
 * Split HTML to use reusable components 
@@ -161,7 +184,7 @@ return "/characters/"+charname;
 those annotations are so you can mapp your url path with the controller methods
 * @PathVariable
 
-capture the path variable that you have in your incooming URL
+capture the path variable that you have in your incoming URL
 
 * ResquestParam
 
