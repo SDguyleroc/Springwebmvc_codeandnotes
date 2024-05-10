@@ -123,8 +123,9 @@ spring Initializer website
   adding Thymeleaf in index or any HTML page would like this:
   with the xmlns="http://www.w3.org/1999/xhtml"
       xmlns:th="http://www.thymeleaf.org" which is Thymeleaf namespace
- ## example <
- html xmlns="http://www.w3.org/1999/xhtml "xmlns:th="http://www.thymeleaf.org">
+ ## example 
+```html
+<html xmlns="http://www.w3.org/1999/xhtml "xmlns:th="http://www.thymeleaf.org">
 
   <head>
   
@@ -136,7 +137,7 @@ spring Initializer website
   </body>
 
 </html>
-
+```
 ## UI Fragments 
 * Split HTML to use reusable components 
   * Header
@@ -212,6 +213,31 @@ to search product we can add in our method.
 
 
 - Connect UI, Controller, and data acess classes
+
+### Validations
+
+- Why are validations needed
+  - It important to verify the data before processing
+  - Otherwise, we'll end up saving bad data
+  - client vs server side
+  - Cosmetic validations vs business validations
+  #### Validation in Spring MVC
+  - Bean validations
+  - Validator contract
+  #### bean validation
+  -  Declaretive constraints on bean properties
+  - Built-in constraints - @NotNull, @Min, @Max, so on
+  - can develop custom constraints
+![img_1.png](img_1.png)
+
+### Data Binding
+- Binding data to beans/domain objects/POJOs
+## User Registration Flow
+
+![img_2.png](img_2.png)
+
+### Bean Validation
+-Create UserController class and method to display user registration page
 
 
 
