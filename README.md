@@ -239,7 +239,41 @@ to search product we can add in our method.
 ### Bean Validation
 - Create UserController class and method to display user registration page
 - Create a User bean and add constraints with error messages
-- 
+- Add another method in controller class to submit the form
+- Bind all properties on HTML
+- Add error messages tags on HTML
+
+### Validator Contract Implementation
+- add a custom validator implementation
+- Register custom validator
+
+### Localization (L10n)/Internationalization (i18n)
+
+* Adapting to local-specific needs
+* Not just translation of text 
+* Include multiple locales in the app
+* in this we're going to focus on tranlation ontext for two language english, swedish/french
+
+### How to Do L10n in spring
+* Add resource bundle file in the app:
+message_en.properties
+* Add key-value entries in the file
+* label.username=Username
+* Configure the app to pick up the resource bundle
+
+### How to Do i18n in Spring
+- Add local-specific resource bundle
+  - messages_sv.properties "sv" local code for Swedish language
+  - message_fr.properties "fr" local code for french language
+- Keys remain the same, values change
+### L10n and i18n in the App
+- Add messages_en.properties file
+- Add LocaleConfiguaration class
+
+### Save User Data
+
+- Add UserRepository class to save user information
+- Invoke UserRepository from UserController
 
 
 

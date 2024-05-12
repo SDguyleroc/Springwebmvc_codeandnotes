@@ -33,4 +33,10 @@ public class HomeController {
     public String getCharacter(@PathVariable("charname") String charname){
         return "/characters/"+charname;
     }
+    @GetMapping("/about")
+    public String displayAbout(){
+        return "about";
+    }
+
 }
+

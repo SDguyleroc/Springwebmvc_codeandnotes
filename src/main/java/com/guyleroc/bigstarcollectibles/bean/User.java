@@ -1,6 +1,8 @@
 package com.guyleroc.bigstarcollectibles.bean;
 
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -11,7 +13,9 @@ import java.util.Date;
 public class User {
 
     @Id
-    private int id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    //validations
     @NotEmpty(message = "Email cannot be empty")
     @Email(message = "Should be a well formed email address")
     private String email;
@@ -29,11 +33,11 @@ public class User {
     @NotEmpty(message = "Select atleat one favorite character")
     private String favoriteCollection;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
