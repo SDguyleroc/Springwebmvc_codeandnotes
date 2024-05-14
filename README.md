@@ -206,8 +206,76 @@ into the UI
 ### Steps in the code
 
 - Create ProductController class and add a method for search function
+```java
+  @Controller
+public class ProductController {
+
+/**
+   This line declares a private instance variable named 'productRepository'
+of type ProductRepository which is an Interface that extends CrudRepository<T,ID>
+*
+*/
+    private ProductRepository productRepository;
+
+   /*
+   *
+      this is the constructor of the 'ProductController' class. it takes a 'ProductRepository' instance as a parameter. The purpose of this constructor is to allow for dependency injection, which is a design pattern used to implement IoC((Inversion of Control), enabling better modularity and making the code easier to manage and test.
+   */
+    public ProductController(ProductRepository productRepository) {
+        this.productRepository = productRepository;
+    }
+
+   // This annotation indicates that this method should handle POST requests on the URL path /search. 
+
+    @PostMapping("/search")
+    public String search(@RequestParam("searchString") @PathVariable String keyword, Model model){
+        List<Product> products = productRepository.searchByName(keyword);
+        model.addAttribute("products", products);
+        model.addAttribute("searchedFor", keyword);
+        return "search-results";
+    }
+
+}
+```
+Method Signature public String search(@RequestParam("searchString") @PathVariable String keyword, Model model):
+
+    public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
+    @RequestParam("searchString") @PathVariable String keyword: This part of the method signature appears to have a mistake. @RequestParam and @PathVariable are both used to extract values from the request, but they serve different purposes and cannot be used together on the same variable:
+        @RequestParam("searchString") should be used to bind the value of a query parameter named searchString from the request to the method's keyword parameter.
+        @PathVariable is used to extract a value from the URI path, which isn't applicable here since we're dealing with a query parameter. This should be removed or corrected depending on the intended functionality.
+    Model model: This is a parameter of type Model that Spring MVC provides to allow adding attributes to the model. These attributes can be accessed by the view to display data.
+
+Method Body:
+
+    List<Product> products = productRepository.searchByName(keyword);: This line calls a method searchByName on the productRepository. The method is expected to return a list of Product objects that match the given keyword.
+    model.addAttribute("products", products);: This adds the list of products to the model with the attribute name "products". This allows the data to be rendered in the view.
+    model.addAttribute("searchedFor", keyword);: This adds the search keyword to the model, allowing the view to display or reference what the user searched for.
+
+Return Statement:
+
+    return "search-results";: This returns the name of the view that should be rendered. In this context, "search-results" likely refers to a Thymeleaf or JSP page that will display the search results.
+
 - Create Product bean class
+ ```java
+  @Entity
+public class Product {
+    @Id
+    private int id;
+    private String name;
+    private String description;
+    private int rating;
+    private int noOfReviews;
+    private String color;
+    private  int categoryId;
+    private int robotId;
+    private String imagePath;
+
+    private int price;
+//getter and setter below
+  }
+  ```
 - Add ProductRepository class to talk to MySQL
+
 which is the data access layer. repsitory APIs in spring data exist to incoporate all the boilerplate code that you have to write when you deal with a database
 all the code is writen behind the scene so you don't have to write it.
 ProductRepository is name like this because of the spring jpa naming convertion.
@@ -215,7 +283,14 @@ the Interface has to be annoted with @Repository and extends CrudRepository or J
 the magic is that they give you a set of ready-made methods that you can quickly utilize to query the database.
 to search product we can add in our method.
 
+```java
+@Repository
+public interface ProductRepository extends CrudRepository<Product, Integer> {
+    @Query("SELECT p FROM Product p WHERE p.name LIKE %:searchString%")
+    public List<Product> searchByName(@Param("searchString") String keyword);
 
+}
+```
 
 - Connect UI, Controller, and data acess classes
 
