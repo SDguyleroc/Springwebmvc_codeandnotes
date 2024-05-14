@@ -237,11 +237,20 @@ of type ProductRepository which is an Interface that extends CrudRepository<T,ID
 
 }
 ```
-#### Method Signature public String search(@RequestParam("searchString") @PathVariable String keyword, Model model)
+#### Method Signature
+```java
+public String search(@RequestParam("searchString") @PathVariable String keyword, Model model)
+```
+```java
+public String search(...)
+```
+: This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
 
-public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
-  
-@RequestParam("searchString") @PathVariable String keyword: This part of the method signature appears to have a mistake. 
+```java  
+@RequestParam("searchString") @PathVariable String keyword
+```
+
+: This part of the method signature appears to have a mistake. 
     
 @RequestParam and @PathVariable are both used to extract values from the request, but they serve different purposes and cannot be used together on the same variable:
 
