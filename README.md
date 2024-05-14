@@ -239,7 +239,7 @@ of type ProductRepository which is an Interface that extends CrudRepository<T,ID
 ```
 #### Method Signature public String search(@RequestParam("searchString") @PathVariable String keyword, Model model)
 
-  public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
+public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
   
 @RequestParam("searchString") @PathVariable String keyword: This part of the method signature appears to have a mistake. 
     
@@ -252,8 +252,8 @@ of type ProductRepository which is an Interface that extends CrudRepository<T,ID
 Model model: This is a parameter of type Model that Spring MVC provides to allow adding attributes to the model. These attributes can be accessed by the view to display data.
 
 #### Method Body:
-
-  ```java  List<Product> products = productRepository.searchByName(keyword);
+ ```java
+ List<Product> products = productRepository.searchByName(keyword);
 ```
  : This line calls a method searchByName on the productRepository. The method is expected to return a list of Product objects that match the given keyword.
    
