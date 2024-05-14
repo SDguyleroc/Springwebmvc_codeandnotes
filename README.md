@@ -237,21 +237,21 @@ of type ProductRepository which is an Interface that extends CrudRepository<T,ID
 
 }
 ```
-Method Signature public String search(@RequestParam("searchString") @PathVariable String keyword, Model model):
+#### Method Signature public String search(@RequestParam("searchString") @PathVariable String keyword, Model model)
 
-    public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
+  public String search(...): This defines a public method named search which returns a String. The returned String typically represents the name of the view (in this case, a Thymeleaf or JSP page) that should be rendered as the response.
     @RequestParam("searchString") @PathVariable String keyword: This part of the method signature appears to have a mistake. @RequestParam and @PathVariable are both used to extract values from the request, but they serve different purposes and cannot be used together on the same variable:
         @RequestParam("searchString") should be used to bind the value of a query parameter named searchString from the request to the method's keyword parameter.
         @PathVariable is used to extract a value from the URI path, which isn't applicable here since we're dealing with a query parameter. This should be removed or corrected depending on the intended functionality.
     Model model: This is a parameter of type Model that Spring MVC provides to allow adding attributes to the model. These attributes can be accessed by the view to display data.
 
-Method Body:
+#### Method Body:
 
     List<Product> products = productRepository.searchByName(keyword);: This line calls a method searchByName on the productRepository. The method is expected to return a list of Product objects that match the given keyword.
     model.addAttribute("products", products);: This adds the list of products to the model with the attribute name "products". This allows the data to be rendered in the view.
     model.addAttribute("searchedFor", keyword);: This adds the search keyword to the model, allowing the view to display or reference what the user searched for.
 
-Return Statement:
+#### Return Statement:
 
     return "search-results";: This returns the name of the view that should be rendered. In this context, "search-results" likely refers to a Thymeleaf or JSP page that will display the search results.
 
