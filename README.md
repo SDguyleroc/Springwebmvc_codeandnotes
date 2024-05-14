@@ -303,6 +303,20 @@ public interface ProductRepository extends CrudRepository<Product, Integer> {
 
 }
 ```
+The code snippet is defining a ProductRepository interface for accessing and manipulating Product data in a database, using Spring Data JPA. Here's a quick breakdown:
+
+@Repository Annotation: Indicates that the interface is a repository layer in Spring, which is used to abstract the data layer, allowing data access mechanisms to be handled by Spring.
+
+Interface Extension:
+
+extends CrudRepository<Product, Integer>: This means ProductRepository inherits basic CRUD operations from CrudRepository for Product entities with an Integer type ID.
+
+Custom Query Method:
+        @Query("SELECT p FROM Product p WHERE p.name LIKE %:searchString%"): This custom query annotation defines a JPQL (Java Persistence Query Language) query to find products whose name contains the substring provided by the parameter searchString.
+      
+public List<Product> searchByName(@Param("searchString") String keyword): Declares a method that executes the above query, binding the method parameter keyword to the named parameter :searchString in the query. It returns a list of products that match the search criteria.
+
+This setup allows for flexible and powerful search capabilities within your data access layer, using Spring Data's repository abstraction.
 
 - Connect UI, Controller, and data acess classes
 
