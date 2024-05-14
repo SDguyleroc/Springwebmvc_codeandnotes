@@ -152,21 +152,25 @@ spring Initializer website
 
 ##### fragments reference: 
 you would add a div tag then th:replace like this:
+```html
 
 <div th:replace="~{fragments.html :: header}"></div>
+```
 
 ##### in fragments.html if you want to add a header component here is how it will look like:
-<header th:fragment="header">
+```html <header th:fragment="header">
 then the rest of the header code goes here 
 </header>
+```
 
 ## Template (`th:href`)
 -  th:href="@{/getCharacter/{charname} (charname='Character-Detail-Delores')}"
 
 - The `th:href` attribute is a Thymeleaf template that creates a URL.
-- `@{/getCharacter/{charname} (charname='Character-Detail-Delores')}` generates the URL `/getCharacter/Character-Detail-Delores`.
+- `@{/getCharacter/{charname} (charname='Character-Detail-Delores')}` generates the URL example: `/getCharacter/Character-Detail-Delores`.
 
 ## Controller
+```java
 @GetMapping("/getCharacter/{charname}")
 
 public String getCharacter(@PathVariable("charname") String charname){
@@ -174,6 +178,7 @@ public String getCharacter(@PathVariable("charname") String charname){
 return "/characters/"+charname;
 
 }
+```
 - The `@GetMapping` annotation maps the URL `/getCharacter/{charname}` to the `getCharacter` method.
 - The method extracts the `charname` parameter from the URL.
 - The method then returns a path `/characters/Character-Detail-Delores`.
